@@ -21,7 +21,12 @@ public class WuerfelUI extends JLabel {
     ImageIcon wuerfel5 = new ImageIcon(getClass().getResource("/resources/Bilder/wuerfel5.png"));
     ImageIcon wuerfel6 = new ImageIcon(getClass().getResource("/resources/Bilder/wuerfel6.png"));
 
-    public WuerfelUI(int i) {
+    public WuerfelUI(){
+         this.setIcon(wuerfel1);
+                
+    }
+
+    public void setWuerfel(int i) {
         switch (i) {
             case 1:
                 this.setIcon(wuerfel1);
