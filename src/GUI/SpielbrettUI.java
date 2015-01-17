@@ -89,7 +89,7 @@ public class SpielbrettUI extends JPanel implements Observer {
 
                     break;
                 case 3:
-                    base[i].setBounds(this.getWidth() - 135, this.getHeight() - 160, base[i].getWidth(), base[i].getHeight());
+                    base[i].setBounds(this.getWidth() - 135, this.getHeight() - 135, base[i].getWidth(), base[i].getHeight());
                     base[i].setBackground(Color.YELLOW);
 
                     break;

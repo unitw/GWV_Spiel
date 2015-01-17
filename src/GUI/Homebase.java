@@ -33,7 +33,7 @@ public class Homebase extends JPanel {
         this.add(feld4);
         this.setSize(122, 122);
         
-        //this.setBorder(BorderFactory.createLineBorder(Color.black, 0));
+        this.setBorder(BorderFactory.createLineBorder(Color.black, 1));
     }
     
   public void setIndex(int i){

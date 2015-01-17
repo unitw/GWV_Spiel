@@ -39,8 +39,8 @@ public class GUI extends JFrame {
 
     public void createGUI(int anz) {
 
-        sbrett.createSpielfeld(anz, 2);
-       // this.add(sbrett, BorderLayout.NORTH);
+        sbrett.createSpielfeld(anz, 4);
+       this.add(sbrett, BorderLayout.NORTH);
         this.add(createWürfelPanel());
         repaint();
     }
