@@ -32,17 +32,26 @@ public class SpielbrettUI extends JPanel implements Observer {
 
     public void createSpielfeld(int anzfelder, int spieler) {
         FeldUI feldarray[] = new FeldUI[anzfelder];
+       
+        double Winkel = (Math.PI * 2.0) / anzfelder;
+            double RadiusX = 10 * anzfelder + 61;
+            double RadiusY = 10 * anzfelder + 61;
+            double StartX = 450;
+            double StartY = 250;
+        
+        
+        
         for (int i = 0; i < anzfelder; i++) {
-            feldarray[i] = new FeldUI(xbrett, ybrett, i);
+
+             double MidPosX = (Math.cos(Winkel * i) * RadiusX) + StartX;
+                double MidPosY = (Math.sin(Winkel * i) * RadiusY) + StartY;
+            
+            feldarray[i] = new FeldUI((int)MidPosX, (int)MidPosY, i);
             this.add(feldarray[i]);
 
-            int reihe = anzfelder / 2;
+            
 
-            xbrett += 75;
-            if (xbrett > this.getWidth()) {
-                ybrett += 75;
-                xbrett = 0;
-            }
+           
         }
 
         switch (spieler) {
