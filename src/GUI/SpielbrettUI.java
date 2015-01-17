@@ -21,57 +21,52 @@ public class SpielbrettUI extends JPanel implements Observer {
     int xbrett = 220;
     int ybrett = 250;
     Color bg = new Color(0xffff80);
+    Color[] rgb = new Color[4];
 
     public SpielbrettUI() {
         this.setSize(1000, 600);
         this.setLayout(null);
         setBackground(bg);
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        rgb[0] = new Color(0x1289f8);
+        rgb[1] = new Color(0xff0000);
+        rgb[2] = new Color(0xfcff00);
+        rgb[3] = new Color(0x12ff00);
 
     }
 
     public void createSpielfeld(int anzfelder, int spieler) {
         FeldUI feldarray[] = new FeldUI[anzfelder];
-       
+
+        int startfelder = anzfelder / spieler;
+
         double Winkel = (Math.PI * 2.0) / anzfelder;
-            double RadiusX = 10 * anzfelder + 61;
-            double RadiusY = 10 * anzfelder + 61;
-            double StartX = 450;
-            double StartY = 250;
-        
-        
-        
+        double RadiusX = 10 * anzfelder + 61;
+        double RadiusY = 10 * anzfelder + 61;
+        double StartX = 450;
+        double StartY = 250;
+int a = 0;
         for (int i = 0; i < anzfelder; i++) {
 
-             double MidPosX = (Math.cos(Winkel * i) * RadiusX) + StartX;
-                double MidPosY = (Math.sin(Winkel * i) * RadiusY) + StartY;
-            
-            feldarray[i] = new FeldUI((int)MidPosX, (int)MidPosY, i);
+            double MidPosX = (Math.cos(Winkel * i) * RadiusX) + StartX;
+            double MidPosY = (Math.sin(Winkel * i) * RadiusY) + StartY;
+
+            feldarray[i] = new FeldUI((int) MidPosX, (int) MidPosY, i + 1);
+
+            if (feldarray[i].getidx() % startfelder == 0) {
+                
+                Color col = rgb[a];
+                feldarray[i].setBackground(col);
+                feldarray[i].setOpaque(true);
+                a =a+ 1;
+
+            }
+
             this.add(feldarray[i]);
 
-            
-
-           
         }
 
-        switch (spieler) {
-            case 1:
-                createHomerBase(1);
-
-                break;
-            case 2:
-                createHomerBase(2);
-
-                break;
-            case 3:
-                createHomerBase(3);
-                break;
-
-            case 4:
-                createHomerBase(4);
-                break;
-
-        }
+        createHomerBase(spieler);
 
     }
 
@@ -85,21 +80,21 @@ public class SpielbrettUI extends JPanel implements Observer {
             switch (base[i].getIndex()) {
                 case 0:
                     base[i].setBounds(10, 5, base[i].getWidth(), base[i].getHeight());
-                    base[i].setBackground(Color.BLUE);
+                    base[i].setBackground(rgb[0]);
                     break;
                 case 1:
                     base[i].setBounds(this.getWidth() - 135, 5, base[i].getWidth(), base[i].getHeight());
-                    base[i].setBackground(Color.RED);
+                    base[i].setBackground(rgb[1]);
 
                     break;
                 case 2:
                     base[i].setBounds(10, this.getHeight() - 135, base[i].getWidth(), base[i].getHeight());
-                    base[i].setBackground(Color.GREEN);
+                    base[i].setBackground(rgb[2]);
 
                     break;
                 case 3:
                     base[i].setBounds(this.getWidth() - 135, this.getHeight() - 135, base[i].getWidth(), base[i].getHeight());
-                    base[i].setBackground(Color.YELLOW);
+                    base[i].setBackground(rgb[3]);
 
                     break;
 

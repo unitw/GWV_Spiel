@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -29,11 +30,14 @@ public class FeldUI extends JLabel {
     int idx;
 
     public FeldUI(int x, int y, int index) {
+        this.setLayout(null);
+        // this.add(new JLabel(feldpic));
         this.xpos = x;
         this.ypos = y;
         this.idx = index;
-        this.setBounds(x, y, breite, hoehe);
         this.setIcon(feldpic);
+        this.setBounds(x, y, breite, hoehe);
+       
 
         this.addMouseListener(new MouseListener() {
 
@@ -64,7 +68,7 @@ public class FeldUI extends JLabel {
                 setCursor(Cursor.getDefaultCursor());
             }
         });
-
+        this.repaint();
     }
 
     public void setidx(int i) {

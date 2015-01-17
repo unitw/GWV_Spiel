@@ -20,7 +20,7 @@ public class GWV  {
 
     public static void main(String[] args) {
        gui= new GUI();
-       gui.createGUI(13);
+       gui.createGUI(12);
     }
 
 }
