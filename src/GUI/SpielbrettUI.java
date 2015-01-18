@@ -44,8 +44,8 @@ public class SpielbrettUI extends JPanel implements Observer {
         double RadiusX = 10 * anzfelder + 61;
         double RadiusY = 10 * anzfelder + 61;
         double StartX = 450;
-        double StartY = 250;
-int a = 0;
+        double StartY = 270;
+        int a = 3;
         for (int i = 0; i < anzfelder; i++) {
 
             double MidPosX = (Math.cos(Winkel * i) * RadiusX) + StartX;
@@ -55,10 +55,15 @@ int a = 0;
 
             if (feldarray[i].getidx() % startfelder == 0) {
                 
-                Color col = rgb[a];
+                Color[] rgb1= new Color[4];
+                rgb1[1] = new Color(0x1289f8);
+                rgb1[0] = new Color(0xff0000);
+                rgb1[2] = new Color(0xfcff00);
+                rgb1[3] = new Color(0x12ff00);
+                Color col = rgb1[a];
                 feldarray[i].setBackground(col);
                 feldarray[i].setOpaque(true);
-                a =a+ 1;
+                a = a - 1;
 
             }
 
