@@ -37,7 +37,6 @@ public class FeldUI extends JLabel {
         this.idx = index;
         this.setIcon(feldpic);
         this.setBounds(x, y, breite, hoehe);
-       
 
         this.addMouseListener(new MouseListener() {
 
@@ -56,11 +55,11 @@ public class FeldUI extends JLabel {
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                Toolkit toolkit = Toolkit.getDefaultToolkit();
-                Image image = toolkit.getImage(getClass().getResource("/resources/Bilder/blaueshütchen.png"));
-                Cursor c = toolkit.createCustomCursor(image, new Point(getParent().getX(),
-                        getParent().getY()), "img");
-                setCursor(c);
+//                Toolkit toolkit = Toolkit.getDefaultToolkit();
+//                Image image = toolkit.getImage(getClass().getResource("/resources/Bilder/blaueshütchen.png"));
+//                Cursor c = toolkit.createCustomCursor(image, new Point(getParent().getX(),
+//                        getParent().getY()), "img");
+//                setCursor(c);
             }
 
             @Override
@@ -69,6 +68,22 @@ public class FeldUI extends JLabel {
             }
         });
         this.repaint();
+    }
+
+    public int getx() {
+        return xpos;
+    }
+
+    public void setx(int x) {
+        this.xpos = x;
+    }
+
+    public int gety() {
+        return ypos;
+    }
+
+    public void sety(int y) {
+        this.ypos = y;
     }
 
     public void setidx(int i) {
